@@ -12,10 +12,10 @@
 # RootModule = ''
 
 # Version number of this module.
-ModuleVersion = '0.1.1'
+ModuleVersion = '0.1.2'
 
 # Supported PSEditions
-# CompatiblePSEditions = @()
+CompatiblePSEditions = @(5, 7)
 
 # ID used to uniquely identify this module
 GUID = 'cdfee914-9bf0-424d-9e14-8c571d4e1d1c'
@@ -87,7 +87,7 @@ AliasesToExport = @()
 # ModuleList = @()
 
 # List of all files packaged with this module
-FileList = @("ping_scan.psd1", "ping_scan.psm1", "LICSENCE")
+FileList = @("ping_scan.psd1", "ping_scan.psm1")
 
 # Private data to pass to the module specified in RootModule/ModuleToProcess. This may also contain a PSData hashtable with additional module metadata used by PowerShell.
 PrivateData = @{
@@ -95,10 +95,10 @@ PrivateData = @{
     PSData = @{
 
         # Tags applied to this module. These help with module discovery in online galleries.
-          Tags = @("Powershell", "Ping", "Network", "Network Scan")
+          Tags = @("Powershell", "Ping", "Network", "IPv4")
 
         # A URL to the license for this module.
-        LicenseUri = 'https://github.com/ertush/ping_scan/blob/master/LICENSE'
+        # LicenseUri = 'https://github.com/ertush/ping_scan/blob/master/LICENSE'
 
         # A URL to the main website for this project.
         ProjectUri = 'https://github.com/ertush/ping_scan.git'
@@ -113,7 +113,7 @@ PrivateData = @{
         # Prerelease = ''
 
         # Flag to indicate whether the module requires explicit user acceptance for install/update/save
-        RequireLicenseAcceptance = $true
+        RequireLicenseAcceptance = $false
 
         # External dependent modules of this module
         # ExternalModuleDependencies = @()

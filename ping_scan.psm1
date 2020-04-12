@@ -126,9 +126,9 @@ function Show-Progress(){
         $_pcnt -= 10
     }
 
-        $percnt = $($([int]$_ip.Split('.')[3]) * 100) / $r_num
-
-    Write-Progress -Activity $("ping scan "+[string]$percnt+"%") -Status $("Pinging "+$_ip)  -PercentComplete  $($_pcnt * 10)
+        $percnt = $($([int]$_ip.Split('.')[3]) * 100) / $_maxRange
+    
+        Write-Progress -Activity $("ping scan "+[int]$percnt+"%") -Status $("Pinging "+$_ip)  -PercentComplete  $($_pcnt * 10)
 }
 
 function Show-Stats(){
