@@ -9,7 +9,7 @@ Scan a range of Addresses and get back all alive host along side other statistic
 ## Example
 
 ```powershell Ping-AddressRange 192.168.1.3-45 Wi-Fi``` 
-
+    
 ## Dependencies
 
 None
