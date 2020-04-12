@@ -12,10 +12,10 @@
 # RootModule = ''
 
 # Version number of this module.
-ModuleVersion = '0.1.2'
+ModuleVersion = '0.1.2 stable'
 
 # Supported PSEditions
-CompatiblePSEditions = @(5, 7)
+# CompatiblePSEditions = @()
 
 # ID used to uniquely identify this module
 GUID = 'cdfee914-9bf0-424d-9e14-8c571d4e1d1c'
