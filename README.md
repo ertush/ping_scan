@@ -16,4 +16,10 @@ None
 
 ## Install
 
-```Install-Module -Name ping_scan``` 
+```Install-Module -Name ping_scan -RequiredVersion 0.2.1``` 
+
+then
+
+```import-module -Path ${env:ProgramFiles(x86)}\WindowsPowerShell\Modules\ping_scan\<version>\ping_scan.psm1``` 
+
+where 'version' is the version you installed
