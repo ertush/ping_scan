@@ -6,7 +6,7 @@ Scan a range of Addresses and get back all alive host along side other statistic
 
 ```Ping-AddressRange <ip_address [string]> <interface (Wi-Fi | Ethernet | ...) [string]>```
 
-### Example
+>>#### Example
 
 >>```Ping-AddressRange 192.168.1.3-45 Wi-Fi``` 
 
