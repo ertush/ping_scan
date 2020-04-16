@@ -7,6 +7,8 @@ function Ping-AddressRange{
     Ping-AddressRange -NetID 192.168.0.1-224 -interface Wi-Fi  
 .FUNCTIONALITY
     Get the successfull ping results of all the machines in a network
+.DESCRIPTION
+    Scan a range of Addresses and get back all alive host along side other statistics
 #>
 
     [CmdletBinding()]
@@ -139,5 +141,7 @@ function Show-Stats(){
 
     Write-Host "`n"
     Write-Output $($stats | Format-Table -AutoSize)
+
+    return $stats
                  
 }
