@@ -21,13 +21,21 @@ function Ping-AddressRange{
         [string]
         $NetIP,
 
-        # Interface to send ping requests
+        # Network Interface to send ping requests
         [Parameter(
             Mandatory=$true,
             Position=2
         )]
         [string]
-        $interface
+        $interface,
+
+        # Path to save results
+         [Parameter(
+            Mandatory=$false,
+            Position=3
+        )]
+        [string]
+        $pathName
     
     )
     
@@ -128,7 +136,7 @@ function Show-Progress(){
         $_pcnt -= 10
     }
 
-        $percnt = $($([int]$_ip.Split('.')[3]) * 100) / $_maxRange
+        $percnt = $($([int]$_ip.Split('.')[3] - $_minRange) * 100) / $($_maxRange - $_minRange)
     
         Write-Progress -Activity $("ping scan "+[int]$percnt+"%") -Status $("Pinging "+$_ip)  -PercentComplete  $($_pcnt * 10)
 }
@@ -138,6 +146,10 @@ function Show-Stats(){
 
     $host_IP = $(Get-NetIPAddress | Where-Object{$_.AddressFamily -eq 'IPv4' -and $_.InterfaceAlias -eq $interface} | ForEach-Object{$_.IPAddress})
     $stats = @{Host_alive=$alive_hosts; Localhost=$host_IP; Host_scanned=$r_num; Num_alive_host=$alive_hosts.Count}
+
+    if($pathName -ne ""){
+        Out-File -InputObject $stats -FilePath $pathName
+    }
 
     return $stats
                  
