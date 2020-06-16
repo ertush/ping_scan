@@ -63,30 +63,25 @@ function Ping-AddressRange{
                                     Show-Progress($_, $current_add); 
                                     
                                     # Send 1 ping to IP
-                                    ping $_ -n 1 
+                                    Test-Connection $_ -Count 1 
                                 } 
                             )
 
             $pingResults = @{
                                     pinged_address=$(
-                                    $addressRange |
-                                    Select-String "Pinging*" | 
+                                    $addressRange | 
                                     ForEach-Object{
-                                        $_.Line.split(' ')[1]
+                                        $_.Address.IPAddressToString
                                     }
                                     );
                                     Loss=$(
                                     $addressRange |
-                                    Select-string "Packets*" |  
-                                    
                                     # Select First No. x of the pinged addresses
                                     Select-Object -First $r_num |
                                     ForEach-Object{
-                                        @{Packets=$_.Line.split(':')[1]}
-                                    } | 
-                                    ForEach-Object{
-                                        $_["Packets"].split(',')[2].split('(')[0]
-                                    })
+                                        $_.Status
+                                    } 
+                                    )
                                 }  
                                 
             }
@@ -106,7 +101,7 @@ function Ping-AddressRange{
                 $alive_h = @( 
                                 $all_host.Keys |
                                 Where-Object{
-                                    $($all_host.Item($_)) -imatch "Lost = 0"
+                                    $($all_host.Item($_)) -imatch "Success"
                                 }
                             )
 
