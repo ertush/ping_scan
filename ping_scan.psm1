@@ -142,7 +142,7 @@ function Show-Stats(){
     $host_IP = $(Get-NetIPAddress | Where-Object{$_.AddressFamily -eq 'IPv4' -and $_.InterfaceAlias -eq $interface} | ForEach-Object{$_.IPAddress})
     $stats = @{Host_alive=$alive_hosts; Localhost=$host_IP; Host_scanned=$r_num; Num_alive_host=$alive_hosts.Count}
 
-    if($pathName -ne ""){
+    if($null -ne $pathName){   
         Out-File -InputObject $stats -FilePath $pathName
     }
 
