@@ -1,9 +1,8 @@
-name: Docker registry
+name: Docker CI
 
-on: 
-   push:
-     tags:
-       - 'v*'
+on:
+    push:
+      branches: [ ping_scan_docker ]
 
 jobs:
   github:
