@@ -12,7 +12,7 @@
   RootModule = 'ping_scan'
   
   # Version number of this module.
-  ModuleVersion = '0.1.3.6'
+  ModuleVersion = '0.1.4'
   
   # Supported PSEditions
   # CompatiblePSEditions = @()
