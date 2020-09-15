@@ -1,4 +1,4 @@
-name: publish ping_scan
+name: publish module
 on:
   push:
     branches: 
@@ -16,11 +16,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - id : ps-publish
-    uses: ertush/powershell-gallery-publish@v1.0.0
-    with:
-    - nugetapi-key: ${{ NUGET_API_KEY }}
-    - payload-name: 'ping_scan'
-    - payload-type: 'module'
-    - repository: 'PSGallery'
-    run: echo output ${{ steps.ps-publish.outputs.status }}
-    shell: bash
+      uses: ertush/powershell-gallery-publish@v1.0.0
+      with:
+      - nugetapi-key: ${{ NUGET_API_KEY }}
+      - payload-name: 'ping_scan'
+      - payload-type: 'module'
+      - repository: 'PSGallery'
+    - run: echo output ${{ steps.ps-publish.outputs.status }}
+      shell: bash
