@@ -1,7 +1,7 @@
 name: publish ping_scan
 on:
   push:
-    branch: 
+    branches: 
     - 'master'
     - '!ping_scan_docker'
     paths: 
@@ -22,5 +22,5 @@ jobs:
     - payload-name: 'ping_scan'
     - payload-type: 'module'
     - repository: 'PSGallery'
-    - run: echo output ${{ steps.ps-publish.outputs.status }}
-      shell: bash
+    run: echo output ${{ steps.ps-publish.outputs.status }}
+    shell: bash
