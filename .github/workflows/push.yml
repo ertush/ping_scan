@@ -7,6 +7,7 @@ on:
     paths: 
     - 'ping_scan.psm1'
     - 'ping_scan.psd1'
+    - '.github/workflows/**'
     - '!README.md'
     - '!LICENSE'
 jobs:        
@@ -22,5 +23,5 @@ jobs:
       - payload-name: 'ping_scan'
       - payload-type: 'module'
       - repository: 'PSGallery'
-    - run: echo output ${{ steps.ps-publish.outputs.status }}
+      run: echo output ${{ steps.ps-publish.outputs.status }}
       shell: bash
