@@ -19,9 +19,9 @@ jobs:
     - id : ps-publish
       uses: ertush/powershell-gallery-publish@v1.0.0
       with:
-      - nugetapi-key: ${{ NUGET_API_KEY }}
-      - payload-name: 'ping_scan'
-      - payload-type: 'module'
-      - repository: 'PSGallery'
-      run: echo output ${{ steps.ps-publish.outputs.status }}
+        nugetapi-key: ${{ NUGET_API_KEY }}
+        payload-name: 'ping_scan'
+        payload-type: 'module'
+        repository: 'PSGallery'
+    - run: echo output ${{ steps.ps-publish.outputs.status }}
       shell: bash
