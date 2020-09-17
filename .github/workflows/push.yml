@@ -20,8 +20,9 @@ jobs:
       uses: ertush/powershell-gallery-publish@master
       with:
         nugetapi-key: ${{ secrets.NUGET_API_KEY }}
-        payload-name: 'ping_scan'
-        payload-type: 'module'
-        repository: 'PSGallery'
+        payload-name: ping_scan
+        payload-type: module
+        repository: PSGallery
+        source: ${{ TARGET_REPO_GIT }}
     - run: echo output ${{ steps.ps-publish.outputs.status }}
       shell: bash
