@@ -3,6 +3,7 @@ on:
   push:
     branches: 
     - 'master'
+    - 'v1'
     - '!ping_scan_docker'
     paths: 
     - 'ping_scan.psm1'
