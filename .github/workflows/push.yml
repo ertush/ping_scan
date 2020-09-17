@@ -18,7 +18,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - id : ps-publish
-      uses: ertush/powershell-gallery-publish@v1
+      uses: ertush/powershell-gallery-publish@master
       with:
         nugetapi-key: ${{ secrets.NUGET_API_KEY }}
         payload-name: ping_scan
