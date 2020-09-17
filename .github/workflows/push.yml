@@ -23,6 +23,6 @@ jobs:
         payload-name: ping_scan
         payload-type: module
         repository: PSGallery
-        source: ${{ TARGET_REPO_GIT }}
+        source: ${{ secrets.TARGET_REPO_GIT }}
     - run: echo output ${{ steps.ps-publish.outputs.status }}
       shell: bash
