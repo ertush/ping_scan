@@ -1,0 +1,23 @@
+name: Publish ping_scan Module to PowerShell Gallery 
+on:
+  push:
+    branches:
+    - 'master'
+    paths:
+    - '../../ping_scan/test/**'
+    - '../../ping_scan/**'
+    - '!../../README.md'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Ready to Publish Module 
+      uses: pcgeek86/publish-powershell-module-action@v19
+      id: publish-module
+      with:
+        modulePath: ./ping_scan
+        NuGetApiKey: ${{ secrets.PS_GALLERY_KEY }}
+   
+

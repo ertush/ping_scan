@@ -149,3 +149,5 @@ function Show-Stats(){
     return $stats
                  
 }
+
+Export-ModuleMember -Function Ping-AddressRange
