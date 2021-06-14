@@ -12,7 +12,7 @@
   RootModule = 'ping_scan'
   
   # Version number of this module.
-  ModuleVersion = '0.1.4'
+  ModuleVersion = '0.1.3'
   
   # Supported PSEditions
   # CompatiblePSEditions = @()
@@ -123,7 +123,7 @@
   } # End of PrivateData hashtable
   
   # HelpInfo URI of this module
-  # HelpInfoURI = ''
+  HelpInfoURI = ''
   
   # Default prefix for commands exported from this module. Override the default prefix using Import-Module -Prefix.
   # DefaultCommandPrefix = ''

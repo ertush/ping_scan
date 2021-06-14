@@ -1,0 +1,29 @@
+name: publish module
+on:
+  push:
+    branches: 
+    - 'master'
+    - 'v1'
+    - '!ping_scan_docker'
+    paths: 
+    - 'ping_scan.psm1'
+    - 'ping_scan.psd1'
+    - '.github/workflows/**'
+    - '!README.md'
+    - '!LICENSE'
+jobs:        
+  publish:
+    name: publish module
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - id : ps-publish
+      uses: ertush/powershell-gallery-publish@master
+      with:
+        nugetapikey: ${{ secrets.NUGET_API_KEY }}
+        payloadname: ping_scan
+        payloadtype: module
+        repository: PSGallery
+        source: ${{ secrets.TARGET_REPO_GIT }}
+    - run: echo output ${{ steps.ps-publish.outputs.status }}
+      shell: bash
